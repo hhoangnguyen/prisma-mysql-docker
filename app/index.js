@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-app.get("/options", async (req, res) => {
+app.get("/qrCode", async (req, res) => {
   try {
     const options = await prisma.qRCode.findMany();
     res.json(options);

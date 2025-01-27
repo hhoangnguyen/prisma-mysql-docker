@@ -3,6 +3,8 @@
 
 generator client {
   provider = "prisma-client-js"
+  output = "./generated/prisma-client-js"
+  binaryTargets = "debian-openssl-3.0.x"
 }
 
 // Note that some adapters may set a maximum length for the String type by default, please ensure your strings are long
@@ -10,7 +12,7 @@ generator client {
 // See https://www.prisma.io/docs/orm/reference/prisma-schema-reference#string for more information
 datasource db {
   provider = "mysql"
-  url      = "mysql://root:prisma@localhost:3306/prisma"
+  url      = "mysql://root:prisma@mysql-db:3306/prisma"
 }
 
 model Session {
@@ -40,5 +42,18 @@ model QRCode {
   productVariantId String
   destination      String
   scans            Int      @default(0)
+  createdAt        DateTime @default(now())
+}
+
+model Options {
+  id               Int      @id @default(autoincrement())
+  title            String
+  shop             String
+  productId        String
+  productHandle    String
+  productVariantId String
+  destination      String
+  description      String   @db.Text
+  active           Boolean  @default(false)
   createdAt        DateTime @default(now())
 }

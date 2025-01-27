@@ -4,11 +4,11 @@ Built to work with Shopify App tutorial https://shopify.dev/docs/apps/build/buil
 
 <h3>How to use:</h3>
 
-1. Pull this repo locally:
+1. Pull this repo locally: (seems to work only if in `prisma` folder...)
 
-   `git pull https://github.com/hhoangnguyen/prisma-mysql-docker.git`
+   `git clone https://github.com/hhoangnguyen/prisma-mysql-docker.git prisma`
 
-2. Run following to generate schema:
+2. `cd app` and run following to generate schema (will create a `./generated` folder):
 
    `npm run prisma generate`
 
